@@ -2,6 +2,7 @@
 
 [Beginner Gids](./Beginners-gids.md)
 [Hero Image Instructies](./Hero-Image-Instructies.md)
+[Kamer detail handleiding](./Kamer-detail-handleiding.md)
 
 ## 📁 Structuur
 
