@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleurenschema's - Studentenkamers Turnhout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .color-option {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .color-option:hover {
+            transform: translateY(-5px);
+        }
+        .color-preview {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .blue { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); }
+        .green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        
+        .color-info {
+            padding: 2rem;
+        }
+        .color-info h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .color-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-blue {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+        }
+        .btn-green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        .btn-orange {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+        .swatches {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .swatch {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Kies Je Kleurenschema</h1>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Hieronder zie je 3 verschillende kleurenopties voor je website. Klik op "Bekijk Voorbeeld" om te zien hoe de volledige website eruit ziet met dat kleurenschema.
+    </p>
+    
+    <div class="color-grid">
+        <!-- Blue Option -->
+        <div class="color-option">
+            <div class="color-preview blue">💙</div>
+            <div class="color-info">
+                <h2>Blauw/Turquoise</h2>
+                <p>Modern en professioneel. Deze kleuren stralen betrouwbaarheid uit en zijn populair bij studenten. Perfect voor een frisse, eigentijdse uitstraling.</p>
+                <div class="swatches">
+                    <div class="swatch" style="background: #0ea5e9;"></div>
+                    <div class="swatch" style="background: #0284c7;"></div>
+                    <div class="swatch" style="background: #f0f9ff;"></div>
+                </div>
+                <a href="index-blue.html" class="btn btn-blue">Bekijk Voorbeeld</a>
+            </div>
+        </div>
+
+        <!-- Green Option -->
+        <div class="color-option">
+            <div class="color-preview green">💚</div>
+            <div class="color-info">
+                <h2>Groen/Natuur</h2>
+                <p>Fris en natuurlijk. Groene tinten creëren een rustige, ontspannen sfeer. Ideaal als je een warme, leefbare uitstraling wilt.</p>
+                <div class="swatches">
+                    <div class="swatch" style="background: #10b981;"></div>
+                    <div class="swatch" style="background: #059669;"></div>
+                    <div class="swatch" style="background: #ecfdf5;"></div>
+                </div>
+                <a href="index-green.html" class="btn btn-green">Bekijk Voorbeeld</a>
+            </div>
+        </div>
+
+        <!-- Orange Option -->
+        <div class="color-option">
+            <div class="color-preview orange">🧡</div>
+            <div class="color-info">
+                <h2>Oranje/Warm</h2>
+                <p>Energiek en enthousiast. Oranje tinten geven een vriendelijke, toegankelijke indruk. Perfect voor een dynamische, positieve uitstraling.</p>
+                <div class="swatches">
+                    <div class="swatch" style="background: #f59e0b;"></div>
+                    <div class="swatch" style="background: #d97706;"></div>
+                    <div class="swatch" style="background: #fffbeb;"></div>
+                </div>
+                <a href="index-orange.html" class="btn btn-orange">Bekijk Voorbeeld</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 12px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <h3 style="margin-bottom: 1rem;">💡 Tip</h3>
+        <p style="color: #666;">Je kan later altijd nog van kleurenschema veranderen door simpelweg de CSS file te vervangen. Alle 3 de versies gebruiken dezelfde HTML structuur!</p>
+    </div>
+</body>
+</html>
