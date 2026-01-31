@@ -29,10 +29,8 @@ Er zijn 3 verschillende kleurenschema's beschikbaar:
 - Bestand: `styles-orange.css`
 
 **Om van kleur te veranderen:**
-1. Open **color-demo.html** in je browser om de 3 opties te bekijken
-2. Kies je favoriete kleur
-3. Vervang `styles.css` met het gewenste bestand (bijv. hernoem `styles-green.css` naar `styles.css`)
-4. Of verander in alle HTML bestanden `<link rel="stylesheet" href="styles.css">` naar het gewenste stylesheet
+1. Vervang `styles.css` met het gewenste bestand (bijv. hernoem `styles-green.css` naar `styles.css`)
+2. Of verander in alle HTML bestanden `<link rel="stylesheet" href="styles.css">` naar het gewenste stylesheet
 
 ## 📝 Website Onderhouden - Volledige Gids
 
