@@ -1,6 +1,7 @@
 # Studentenkamers Turnhout - Website
 
 [Beginner Gids](./Beginners-gids.md)
+[Hero Image Instructies](./Hero-Image-Instructies.md)
 
 ## 📁 Structuur
 

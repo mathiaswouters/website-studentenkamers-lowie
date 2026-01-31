@@ -32,7 +32,6 @@
     --text-dark: #78350f;
 } */
 
-
 /* Base Styles */
 * {
     margin: 0;
@@ -109,6 +108,27 @@ nav {
     color: white;
     padding: 4rem 2rem;
     text-align: center;
+}
+
+/* Hero with Background Image */
+.hero-with-image {
+    background-image: url('./assets/turnhout-6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay so text is readable */
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 900px;
+    backdrop-filter: blur(5px);
 }
 
 .hero h1 {
@@ -275,6 +295,98 @@ section h2 {
     margin-bottom: 0.5rem;
 }
 
+/* Building Showcase Section */
+.building-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 500px;
+}
+
+.building-image {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.building-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.building-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #e8f4f8 100%);
+    color: #999;
+}
+
+.placeholder-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.building-image-placeholder p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.building-image-placeholder small {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.building-info {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+}
+
+.building-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.building-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.building-feature strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.building-feature p {
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
 /* Contact Section */
 .contact-grid {
     display: grid;
@@ -374,6 +486,22 @@ footer {
 
     .mobile-menu-btn {
         display: block;
+    }
+
+    .building-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .building-image {
+        min-height: 300px;
+    }
+
+    .building-info {
+        padding: 2rem 1.5rem;
+    }
+
+    .building-features {
+        gap: 1rem;
     }
 
     .grid-2,
