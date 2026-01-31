@@ -13,25 +13,25 @@
     --text-dark: #0c4a6e;
 }
 
-/* OPTIE 2: Fris Groen/Natuur (uncomment om te gebruiken)
-:root {
+/* OPTIE 2: Fris Groen/Natuur (uncomment om te gebruiken) */
+/* :root {
     --primary-color: #10b981;
     --primary-dark: #059669;
     --secondary-color: #34d399;
     --accent-color: #ecfdf5;
     --text-dark: #064e3b;
-}
-*/
+} */
 
-/* OPTIE 3: Warm Oranje/Rood (uncomment om te gebruiken)
-:root {
+
+/* OPTIE 3: Warm Oranje/Rood (uncomment om te gebruiken) */
+/* :root {
     --primary-color: #f59e0b;
     --primary-dark: #d97706;
     --secondary-color: #fb923c;
     --accent-color: #fffbeb;
     --text-dark: #78350f;
-}
-*/
+} */
+
 
 /* Base Styles */
 * {
@@ -168,7 +168,7 @@ section h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.btn-secondary {
+/* .btn-secondary {
     background: white;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
@@ -176,6 +176,25 @@ section h2 {
 
 .btn-secondary:hover {
     background: var(--accent-color);
+} */
+
+.btn-secondary {
+    background: white !important;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color) !important;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--accent-color) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Grid Layouts */

@@ -1,6 +1,6 @@
 # Studentenkamers Turnhout - Website
 
-Volledige website voor studentenkamers in Turnhout met 10 kamers.
+[Beginner Gids](./Beginners-gids.md)
 
 ## 📁 Structuur
 
@@ -34,33 +34,283 @@ Er zijn 3 verschillende kleurenschema's beschikbaar:
 3. Vervang `styles.css` met het gewenste bestand (bijv. hernoem `styles-green.css` naar `styles.css`)
 4. Of verander in alle HTML bestanden `<link rel="stylesheet" href="styles.css">` naar het gewenste stylesheet
 
-## 📝 Content Aanpassen
+## 📝 Website Onderhouden - Volledige Gids
 
-### Kamer Informatie
-Alle kamer data staat in **room-data.js**. Hier kun je aanpassen:
-- Kamernamen
-- Prijzen
-- Oppervlaktes
-- Verdiepingen
-- Kenmerken
-- Beschrijvingen
+### 🔧 Tekst Aanpassen op de Website
 
-### Contactgegevens
-Zoek en vervang in alle bestanden:
-- **Email:** `info@studentenkamersturnhout.be`
-- **Telefoon:** `+32 123 45 67 89`
-- **Adres:** `Voorbeeldstraat 123, 2300 Turnhout`
+#### Homepage (index.html) Aanpassen
+1. Open **index.html** in een teksteditor (Notepad++, VS Code, of zelfs Kladblok)
+2. Zoek naar de tekst die je wilt aanpassen
+3. Voorbeelden:
 
-### Foto's Toevoegen
-Momenteel worden emoji iconen (🏠) gebruikt als placeholder. Om echte foto's toe te voegen:
+**Hoofdtitel aanpassen:**
+```html
+<!-- Zoek naar: -->
+<h1>Welkom bij Studentenkamers Turnhout</h1>
+<!-- Verander naar bijv: -->
+<h1>Welkom bij De Beste Studentenkamers</h1>
+```
 
-1. **Voor kamer overzichten:**
-   - Vervang in de CSS `.card-image` achtergrond door: `background: url('jouw-foto.jpg');`
-   - Of vervang de div met: `<img src="jouw-foto.jpg" alt="Kamer foto">`
+**Intro tekst over Turnhout aanpassen:**
+```html
+<!-- Zoek in de sectie "Waarom Turnhout?" -->
+<p>Turnhout combineert historische charme met moderne voorzieningen...</p>
+<!-- Vervang de hele paragraaf met jouw eigen tekst -->
+```
 
-2. **Voor individuele kamers:**
-   - Bewerk **room-data.js** en voeg een `image` property toe aan elk kamer object
-   - Pas de room detail pagina's aan om de foto weer te geven
+**Faciliteiten aanpassen:**
+```html
+<!-- Zoek naar: -->
+<div class="feature-item">🍕 Diverse restaurants & cafés</div>
+<!-- Voeg toe of verwijder items zoals je wilt -->
+```
+
+#### Contact Informatie Overal Aanpassen
+Gebruik "Zoek en vervang" functie in je editor:
+
+1. **Email aanpassen:**
+   - Zoek: `info@studentenkamersturnhout.be`
+   - Vervang door: `jouw-email@example.com`
+   - Vervang in **ALLE** bestanden
+
+2. **Telefoonnummer aanpassen:**
+   - Zoek: `+32 123 45 67 89`
+   - Vervang door: `jouw telefoonnummer`
+   - Vervang in **ALLE** bestanden
+
+3. **Adres aanpassen:**
+   - Zoek: `Voorbeeldstraat 123, 2300 Turnhout`
+   - Vervang door: `jouw adres`
+   - Vervang in contact.html en index.html
+
+#### Voorwaarden & Huisregels Aanpassen (voorwaarden.html)
+1. Open **voorwaarden.html**
+2. Zoek naar de `<ul class="rules-list">` secties
+3. Pas individuele regels aan:
+
+```html
+<li>
+    <strong>Huurperiode</strong><br>
+    Minimaal 1 academiejaar (september - juni).
+</li>
+<!-- Verander de tekst naar jouw eigen voorwaarden -->
+```
+
+### 🏠 Kamer Informatie Aanpassen
+
+#### Bestaande Kamers Wijzigen
+1. Open **room-data.js**
+2. Zoek de kamer die je wilt wijzigen (bijvoorbeeld kamer 1)
+3. Pas de gegevens aan:
+
+```javascript
+{
+    id: 1,
+    name: "Kamer 1 - Ruime Studio",  // Verander de naam
+    price: "€425",                    // Verander de prijs
+    size: "22m²",                     // Verander de oppervlakte
+    floor: "Gelijkvloers",           // Verander de verdieping
+    furnished: "Volledig gemeubeld",
+    features: [                       // Voeg kenmerken toe of verwijder ze
+        "Eigen bureau",
+        "Ruime kledingkast",
+        "Wastafel op kamer",
+        "Grote ramen - veel licht"
+    ],
+    description: "Ruime kamer op..."  // Verander de beschrijving
+}
+```
+
+4. Sla het bestand op
+5. Refresh je browser - de wijzigingen zijn direct zichtbaar!
+
+#### Nieuwe Kamer Toevoegen (Kamer 11)
+
+**Stap 1: Voeg de kamer toe aan room-data.js**
+1. Open **room-data.js**
+2. Scroll naar het einde van de lijst (na kamer 10)
+3. Voeg een komma toe na het laatste kamer object
+4. Voeg de nieuwe kamer toe:
+
+```javascript
+    },  // <- Vergeet deze komma niet na kamer 10!
+    {
+        id: 11,
+        name: "Kamer 11 - Jouw Naam",
+        price: "€400",
+        size: "20m²",
+        floor: "1ste verdieping",
+        furnished: "Volledig gemeubeld",
+        features: [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        description: "Beschrijving van de nieuwe kamer..."
+    }
+];
+```
+
+**Stap 2: Maak een nieuwe HTML pagina voor kamer 11**
+1. Kopieer **kamer-10.html**
+2. Hernoem de kopie naar **kamer-11.html**
+3. Open **kamer-11.html** in je editor
+4. Zoek en vervang:
+   - Zoek: `const roomId = 10;`
+   - Vervang door: `const roomId = 11;`
+   - Zoek: `Kamer 10` (in de title tag)
+   - Vervang door: `Kamer 11`
+   - Zoek: `subject=Interesse in Kamer 10`
+   - Vervang door: `subject=Interesse in Kamer 11`
+
+5. Sla op - de nieuwe kamer is klaar!
+
+#### Kamer Verwijderen
+1. Open **room-data.js**
+2. Verwijder het hele kamer object (inclusief de komma's)
+3. Verwijder het bijbehorende **kamer-X.html** bestand
+4. Klaar!
+
+### 📸 Foto's Toevoegen
+
+#### Voorbereiding
+1. Maak een nieuwe map genaamd **images** in je website folder
+2. Plaats al je foto's in deze map
+3. Geef foto's duidelijke namen: `kamer-1.jpg`, `kamer-2.jpg`, etc.
+4. Gebruik bij voorkeur JPG of PNG formaat
+5. Optimaliseer foto's (max 1920px breed, 500-800KB per foto)
+
+#### Methode 1: Foto's Toevoegen aan Kamer Overzicht
+
+**Optie A: Via CSS (Eenvoudigst)**
+1. Open **styles.css**
+2. Zoek naar `.card-image` (rond regel 192)
+3. Voeg achtergrond afbeelding toe:
+
+```css
+.card-image {
+    width: 100%;
+    height: 200px;
+    background: url('images/default-room.jpg'); /* Voeg deze regel toe */
+    background-size: cover;                      /* En deze */
+    background-position: center;                 /* En deze */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+```
+
+4. Verwijder de emoji (🏠) uit de HTML bestanden als je wilt
+
+**Optie B: Individuele Foto's per Kamer (Geavanceerd)**
+
+1. Open **room-data.js**
+2. Voeg een `image` property toe aan elke kamer:
+
+```javascript
+{
+    id: 1,
+    name: "Kamer 1 - Ruime Studio",
+    price: "€425",
+    image: "images/kamer-1.jpg",  // <- Voeg deze regel toe
+    size: "22m²",
+    // ... rest van de data
+}
+```
+
+3. Open **kamers.html**
+4. Zoek de regel waar de card-image wordt gemaakt (in de JavaScript sectie):
+
+```javascript
+// Zoek naar:
+card.innerHTML = `
+    <div class="card-image">🏠</div>
+
+// Vervang door:
+card.innerHTML = `
+    <div class="card-image" style="background-image: url('${room.image}'); background-size: cover; background-position: center;">
+        ${room.image ? '' : '🏠'}
+    </div>
+```
+
+5. Herhaal dit voor **index.html** (bij de room preview sectie)
+
+#### Methode 2: Foto's op Individuele Kamer Pagina's
+
+1. Open **room-data.js** en voeg foto's toe (zie hierboven)
+
+2. Open **elk kamer-X.html bestand** (of doe dit in één kamer bestand als template)
+3. Zoek in de JavaScript naar:
+
+```javascript
+<div class="card-image" style="height: 400px; border-radius: 12px; font-size: 5rem;">🏠</div>
+```
+
+4. Vervang door:
+
+```javascript
+<div class="card-image" style="height: 400px; border-radius: 12px; background-image: url('${room.image}'); background-size: cover; background-position: center;">
+    ${room.image ? '' : '🏠'}
+</div>
+```
+
+#### Methode 3: Meerdere Foto's per Kamer (Galerij)
+
+1. Open **room-data.js**
+2. Verander `image` naar `images` array:
+
+```javascript
+{
+    id: 1,
+    name: "Kamer 1",
+    images: [
+        "images/kamer-1-a.jpg",
+        "images/kamer-1-b.jpg",
+        "images/kamer-1-c.jpg"
+    ],
+    // ... rest
+}
+```
+
+3. In de kamer detail pagina's, voeg een galerij toe:
+
+```javascript
+// In de kamer-X.html, voeg toe na de hoofd foto:
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+    ${room.images ? room.images.map(img => `
+        <img src="${img}" alt="Kamer foto" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+    `).join('') : ''}
+</div>
+```
+
+### 🎨 Kleuren Aanpassen
+
+1. Open **styles.css**
+2. Zoek naar `:root` (regel 8-14)
+3. Pas de kleuren aan:
+
+```css
+:root {
+    --primary-color: #0ea5e9;      /* Hoofdkleur */
+    --primary-dark: #0284c7;       /* Donkere variant */
+    --secondary-color: #06b6d4;    /* Secundaire kleur */
+    --accent-color: #f0f9ff;       /* Lichte achtergrond */
+    --text-dark: #0c4a6e;          /* Donkere tekst */
+}
+```
+
+Gebruik een color picker tool online om hex codes te vinden (#xxxxxx)
+
+### 📋 Checklist na Wijzigingen
+
+- [ ] Test alle pagina's in je browser
+- [ ] Klik alle links door om te checken of ze werken
+- [ ] Test op mobiel (of gebruik browser developer tools)
+- [ ] Check of foto's correct laden
+- [ ] Controleer of kamers correct worden weergegeven
+- [ ] Test contact links (email & telefoon)
+- [ ] Spelling & grammatica check
 
 ## 🚀 Website Online Zetten
 
@@ -115,13 +365,3 @@ De navigatie past zich automatisch aan voor kleinere schermen.
 2. **Google Analytics:** Voeg tracking code toe om bezoeken te meten
 3. **Contactformulier:** Overweeg een service zoals Formspree.io voor een werkend contactformulier
 4. **SSL Certificaat:** Zorg voor https:// (meestal gratis bij hosting providers)
-
-## 📞 Vragen?
-
-Als je hulp nodig hebt bij het aanpassen of online zetten van de website, neem contact op!
-
----
-
-**Versie:** 1.0  
-**Gemaakt:** Januari 2026  
-**Compatibel met:** Alle moderne browsers
