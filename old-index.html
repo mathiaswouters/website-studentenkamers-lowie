@@ -79,7 +79,7 @@
                     <div class="building-image-placeholder" id="buildingPlaceholder">
                         <div class="placeholder-icon">🏢</div>
                         <p>Jouw gebouw foto hier</p>
-                        <small>Voeg een foto toe aan de images map</small>
+                        <small>Voeg 'building-photo.jpg' toe aan de images map</small>
                     </div>
                 </div>
                 <div class="building-info">
@@ -175,23 +175,45 @@
         <p>&copy; 2026 Studentenkamers Turnhout. Alle rechten voorbehouden.</p>
     </footer>
 
-    <!-- Laad eerst room-data.js, daarna deze script -->
-    <script src="room-data.js"></script>
     <script>
-        // Toon preview van de eerste 3 kamers uit de gedeelde data
-        const previewContainer = document.getElementById('roomPreview');
-        const previewRooms = rooms.slice(0, 3);
+        // Sample rooms data (same as in other pages)
+        const rooms = [
+            {
+                id: 1,
+                name: "Kamer 1 - Ruime Studio",
+                price: "€425",
+                size: "22m²",
+                floor: "Gelijkvloers",
+                features: ["Eigen bureau", "Ruime kledingkast", "Wastafel op kamer"]
+            },
+            {
+                id: 2,
+                name: "Kamer 2 - Gezellige Kamer",
+                price: "€385",
+                size: "18m²",
+                floor: "1ste verdieping",
+                features: ["Comfortabel bed", "Bureau met lamp", "Rustige ligging"]
+            },
+            {
+                id: 3,
+                name: "Kamer 3 - Studentenkamer Plus",
+                price: "€450",
+                size: "24m²",
+                floor: "1ste verdieping",
+                features: ["Extra grote kledingkast", "Zithoek", "Balkon"]
+            }
+        ];
 
-        previewRooms.forEach(room => {
+        // Display preview of first 3 rooms
+        const previewContainer = document.getElementById('roomPreview');
+        rooms.forEach(room => {
             const card = document.createElement('div');
             card.className = 'card';
             card.style.cursor = 'pointer';
-            card.onclick = () => window.location.href = `kamer-detail.html?id=${room.id}`;
+            card.onclick = () => window.location.href = `kamer-${room.id}.html`;
             
             card.innerHTML = `
-                <div class="card-image" ${room.image ? `style="background-image: url('${room.image}'); background-size: cover; background-position: center;"` : ''}>
-                    ${room.image ? '' : '🏠'}
-                </div>
+                <div class="card-image">🏠</div>
                 <div class="card-content">
                     <h3>${room.name}</h3>
                     <div class="room-price">${room.price}/maand</div>
@@ -200,7 +222,7 @@
                         <li>${room.floor}</li>
                         ${room.features.slice(0, 2).map(f => `<li>${f}</li>`).join('')}
                     </ul>
-                    <a href="kamer-detail.html?id=${room.id}" class="btn" style="margin-top: 1rem;" onclick="event.stopPropagation();">Bekijk Details</a>
+                    <a href="kamer-${room.id}.html" class="btn" style="margin-top: 1rem;">Bekijk Details</a>
                 </div>
             `;
             
@@ -213,7 +235,7 @@
             navLinks.classList.toggle('active');
         }
 
-        // Building photo handler - toon placeholder als de foto niet bestaat
+        // Building photo handler - show placeholder if image doesn't exist
         const buildingPhoto = document.getElementById('buildingPhoto');
         const buildingPlaceholder = document.getElementById('buildingPlaceholder');
         

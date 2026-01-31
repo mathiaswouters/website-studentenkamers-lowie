@@ -43,124 +43,24 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Lowie Hermans. Alle rechten voorbehouden.</p>
+        <p>&copy; 2026 Studentenkamers Turnhout. Alle rechten voorbehouden.</p>
     </footer>
 
+    <!-- Laad eerst room-data.js, daarna deze script -->
+    <script src="room-data.js"></script>
     <script>
-        // All rooms data
-        const rooms = [
-            {
-                id: 1,
-                name: "Kamer 1 - Ruime Studio",
-                price: "€425",
-                size: "22m²",
-                floor: "Gelijkvloers",
-                furnished: "Volledig gemeubeld",
-                features: ["Eigen bureau", "Ruime kledingkast", "Wastafel op kamer", "Grote ramen - veel licht"],
-                description: "Ruime kamer op het gelijkvloers met veel natuurlijk licht. Perfect voor studenten die van ruimte houden."
-            },
-            {
-                id: 2,
-                name: "Kamer 2 - Gezellige Kamer",
-                price: "€385",
-                size: "18m²",
-                floor: "1ste verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Comfortabel bed", "Bureau met lamp", "Kledingkast", "Rustige ligging"],
-                description: "Gezellige kamer op de eerste verdieping met een rustige uitstraling en alle nodige comfort."
-            },
-            {
-                id: 3,
-                name: "Kamer 3 - Studentenkamer Plus",
-                price: "€450",
-                size: "24m²",
-                floor: "1ste verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Extra grote kledingkast", "Zithoek", "Bureau", "Balkon"],
-                description: "Ruime kamer met balkon, ideaal voor studenten die wat extra ruimte willen."
-            },
-            {
-                id: 4,
-                name: "Kamer 4 - Compacte Kamer",
-                price: "€365",
-                size: "16m²",
-                floor: "2de verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Functioneel ingericht", "Bureau", "Bed", "Kledingkast"],
-                description: "Praktische kamer met alles wat je nodig hebt voor een comfortabel studentenleven."
-            },
-            {
-                id: 5,
-                name: "Kamer 5 - Lichte Kamer",
-                price: "€410",
-                size: "20m²",
-                floor: "2de verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Grote ramen", "Bureau met boekenkast", "Comfortabel bed", "Wastafel"],
-                description: "Heerlijk lichte kamer met optimale werkruimte voor intensieve studiemomenten."
-            },
-            {
-                id: 6,
-                name: "Kamer 6 - Modern Comfort",
-                price: "€430",
-                size: "21m²",
-                floor: "Gelijkvloers",
-                furnished: "Volledig gemeubeld",
-                features: ["Modern ingericht", "Ruim bureau", "Loungestoel", "Extra opbergruimte"],
-                description: "Modern ingerichte kamer met eigentijds meubilair en veel opbergmogelijkheden."
-            },
-            {
-                id: 7,
-                name: "Kamer 7 - Student Deluxe",
-                price: "€475",
-                size: "25m²",
-                floor: "1ste verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Eigen douche", "Minibar koelkast", "Luxe meubilair", "Smart TV"],
-                description: "Onze meest luxueuze kamer met eigen douche en extra voorzieningen."
-            },
-            {
-                id: 8,
-                name: "Kamer 8 - Basis Comfort",
-                price: "€360",
-                size: "15m²",
-                floor: "2de verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Bed", "Bureau", "Kledingkast", "Praktisch ingedeeld"],
-                description: "Betaalbare kamer met alle basis voorzieningen voor een zorgeloos studentenleven."
-            },
-            {
-                id: 9,
-                name: "Kamer 9 - Studiokamer",
-                price: "€440",
-                size: "23m²",
-                floor: "Gelijkvloers",
-                furnished: "Volledig gemeubeld",
-                features: ["Gescheiden slaap/werkruimte", "Grote bureau", "Fauteuil", "Veel kastruimte"],
-                description: "Kamer met duidelijke scheiding tussen werk- en ontspanningsruimte."
-            },
-            {
-                id: 10,
-                name: "Kamer 10 - Top Kamer",
-                price: "€395",
-                size: "19m²",
-                floor: "2de verdieping",
-                furnished: "Volledig gemeubeld",
-                features: ["Dakraam - veel licht", "Bureau", "Bed", "Rustgevende sfeer"],
-                description: "Charmante kamer op de bovenste verdieping met dakraam en veel lichtinval."
-            }
-        ];
-
-        // Generate room cards
+        // Genereer kamer cards uit de gedeelde rooms data
         const roomsGrid = document.getElementById('roomsGrid');
         rooms.forEach(room => {
             const card = document.createElement('div');
             card.className = 'card';
             card.style.cursor = 'pointer';
-            card.onclick = () => window.location.href = `kamer-${room.id}.html`;
+            card.onclick = () => window.location.href = `kamer-detail.html?id=${room.id}`;
             
             card.innerHTML = `
-                <div class="card-image">🏠</div>
+                <div class="card-image" ${room.image ? `style="background-image: url('${room.image}'); background-size: cover; background-position: center;"` : ''}>
+                    ${room.image ? '' : '🏠'}
+                </div>
                 <div class="card-content">
                     <h3>${room.name}</h3>
                     <div class="room-price">${room.price}/maand</div>
@@ -169,7 +69,7 @@
                         <li>${room.floor}</li>
                         <li>${room.furnished}</li>
                     </ul>
-                    <a href="kamer-${room.id}.html" class="btn" style="margin-top: 1rem;">Bekijk Details</a>
+                    <a href="kamer-detail.html?id=${room.id}" class="btn" style="margin-top: 1rem;" onclick="event.stopPropagation();">Bekijk Details</a>
                 </div>
             `;
             
